@@ -1,8 +1,9 @@
 #include <iostream>
+#include <string>
 #include "CharCircularBuffer.h"
 using namespace std;
 
-const bool SHOW_PROMTPS = false;
+const bool SHOW_PROMTPS = true;
 
 int main()
 {
@@ -18,7 +19,7 @@ int main()
     cin >> capacity;
 
     // Create the char circular buffer, print status
-    CharCircularBuffer buff(capacity);
+    CharCircularBuffer buff(capacity); // object named buff
     buff.printStatus();
 
     // Grab message to place into buffer
@@ -31,7 +32,7 @@ int main()
     cout << "Putting values in buffer" <<endl;
     for(int i=0; i<msg.size(); ++i)
     {
-        buff.put(msg.at(i));
+        buff.put(msg.at(i));  /** @return - Last character in the buffer (tail) **/
     }
     buff.printStatus();
 
@@ -39,7 +40,7 @@ int main()
     cout << "Buffer contents: ";
     while(!buff.isEmpty())
     {
-        cout << buff.get();
+        cout << buff.get();  /**@return - Last character in the buffer (tail) **/
     }
     cout << endl;
 
